@@ -1,0 +1,225 @@
+var a ;
+undefined
+typeof a;
+"undefined"
+a=100;
+100
+typeof a;
+"number"
+a=1000.20;
+1000.2
+typeof a;
+"number"
+a=100000000000;
+100000000000
+typeof a;
+"number"
+a = 1;
+1
+typeof a;
+"number"
+a = Number.MAX_SAFE_INTEGER;
+9007199254740991
+++a;
+9007199254740992
+++a;
+9007199254740992
+++a;
+9007199254740992
+a + 9007199254740992
+
+18014398509481984
+a = 9007199254740992n;
+9007199254740992n
+typeof a;
+"bigint"
+a * 9007199254740992n
+81129638414606681695789005144064n
+typeof a;
+"bigint"
+1000 + 2000n
+VM666:1 Uncaught TypeError: Cannot mix BigInt and other types, use explicit conversions
+    at <anonymous>:1:6
+(anonymous) @ VM666:1
+a = Number.MAX_SAFE_INTEGER;
+9007199254740991
+typeof a;
+"number"
+a + 545n;
+VM732:1 Uncaught TypeError: Cannot mix BigInt and other types, use explicit conversions
+    at <anonymous>:1:3
+(anonymous) @ VM732:1
+2n + 2n
+4n
+a = BigInt("6757577644364353587436576438")
+6757577644364353587436576438n
+typeof a;
+"bigint"
+a = 54543534543n;
+54543534543n
+typeof BigInt;
+"function"
+require('fs')
+VM997:1 Uncaught ReferenceError: require is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM997:1
+a;
+54543534543n
+a = 1000 /0;
+Infinity
+a= 1000;
+1000
+a = 1000 /0;
+Infinity
+typeof a;
+"number"
+a=100;
+100
+var b = "100";
+undefined
+typeof a;
+"number"
+typeof b;
+"string"
+a + b;
+"100100"
+++a;
+101
+var c = 888;
+undefined
+a-b;
+1
+a;
+101
+b;
+"100"
+a * b;
+10100
+"Amit"+ " Srivastava"
+"Amit Srivastava"
+"Amit " - "Srivastava"
+NaN
+1000 - "One"
+NaN
+1000 - "100"
+900
+typeof NaN;
+"number"
+var amount = 10000;
+undefined
+amount / 0;
+Infinity
+"Your Amount is "+amount/0
+"Your Amount is Infinity"
+isFinite(amount/0);
+false
+isFinite(amount/0)?amount:'Contact to Support Team';
+"Contact to Support Team"
+var d = 100  - "one";
+undefined
+d;
+NaN
+isNaN(d)?'Contact to Support Team':d;
+"Contact to Support Team"
+d;
+NaN
+d = 1000;
+1000
+isNaN(d)?'Contact to Support Team':d;
+1000
+var f = 10000;
+undefined
+f.toString();
+"10000"
+var d = "100000";
+undefined
+parseInt(d);
+100000
+parseFloat(d);
+100000
+var d = "100000.2000";
+undefined
+parseFloat(d);
+100000.2
+parseInt("Amit")
+NaN
+var d = "100000.207878";
+undefined
+parseFloat(d);
+100000.207878
+d = 943.5452;
+943.5452
+d;
+943.5452
+d.toFixed(2);
+"943.55"
+d = 354543232.322;
+354543232.322
+d = 100000.20;
+100000.2
+d.toLocaleString('hi-IN');
+"1,00,000.2"
+d.toLocaleString('fr-FR');
+"100 000,2"
+d.toLocaleString('en-US');
+"100,000.2"
+d.toLocaleString('ja-JP');
+"100,000.2"
+var name = 'Amit';
+undefined
+typeof name;
+"string"
+name = "Amit";
+"Amit"
+typeof name;
+"string"
+name = 'A';
+"A"
+typeof name;
+"string"
+name = `bgkjdhxgjkhfdkgh`;
+"bgkjdhxgjkhfdkgh"
+name = `bgkjdhxgjkhfdkgh
+hgfdkjhgjkfdhgkjfdhkgj
+ghdrjkfghkjdfhgkjfdhgkjfhdkgj
+`;
+"bgkjdhxgjkhfdkgh
+hgfdkjhgjkfdhgkjfdhkgj
+ghdrjkfghkjdfhgkjfdhgkjfhdkgj
+"
+name;
+"bgkjdhxgjkhfdkgh
+hgfdkjhgjkfdhgkjfdhkgj
+ghdrjkfghkjdfhgkjfdhgkjfhdkgj
+"
+console.log('Hello JS ');
+VM2727:1 Hello JS 
+undefined
+var a = 100;
+undefined
+var b = 200;
+undefined
+var c = a + b;
+undefined
+console.log("A is "+a+" B is "+b+" C is "+c);
+VM2928:1 A is 100 B is 200 C is 300
+undefined
+console.log(`A is ${a} B is ${b} C is ${c}`);
+VM3050:1 A is 100 B is 200 C is 300
+undefined
+a = true;
+true
+typeof a;
+"boolean"
+a = false;
+false
+typeof a;
+"boolean"
+a = "true";
+"true"
+typeof a;
+"string"
+100 + true;
+101
+true + true + false;
+2
