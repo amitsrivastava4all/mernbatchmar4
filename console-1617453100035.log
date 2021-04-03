@@ -1,0 +1,287 @@
+var arr = [10,20];
+undefined
+var arr2 = arr;
+undefined
+arr.push(11);
+3
+arr;
+(3) [10, 20, 11]
+arr.sort();
+(3) [10, 11, 20]
+arr;
+(3) [10, 11, 20]
+var arr4 = [...arr]
+undefined
+arr4;
+(3) [10, 11, 20]
+arr;
+(3) [10, 11, 20]
+arr4 == arr;
+false
+arr[0] = 2121;
+2121
+arr4;
+(3) [10, 11, 20]
+typeof arr;
+"object"
+var x = 100;
+undefined
+typeof x;
+"number"
+arr;
+(3) [2121, 11, 20]
+arr instanceof Array;
+true
+arr instanceof Object;
+true
+typeof Array;
+"function"
+typeof Object;
+"function"
+arr;
+(3) [2121, 11, 20]
+arr = null;
+null
+typeof arr;
+"object"
+arr instanceof Array;
+false
+arr instanceof Object
+false
+arr2;
+(3) [2121, 11, 20]
+arr instanceof Array;
+false
+arr2;
+(3) [2121, 11, 20]
+arr2 instanceof Array;
+true
+arr2 instanceof Object;
+true
+10=="10"
+true
+10==="10"
+false
+var f ;
+undefined
+typeof f;
+"undefined"
+var g = null;
+undefined
+typeof undefined;
+"undefined"
+typeof null;
+"object"
+var g1 = undefined;
+undefined
+null == undefined
+true
+null === undefined;
+false
+100 + undefined
+NaN
+100 + null
+100
+true + true
+2
+var arr = [10,20,30,"Amit",true,[]];
+undefined
+var obj = {};
+undefined
+typeof obj;
+"object"
+obj instanceof Object;
+true
+typeof Object
+"function"
+obj.id = 1001;
+1001
+obj.name = 'Ram';
+"Ram"
+obj;
+{id: 1001, name: "Ram"}id: 1001name: "Ram"__proto__: Object
+delete obj.id;
+true
+obj;
+{name: "Ram"}
+var arr = [10,20,30,40,50];
+undefined
+for(var i = 0; i<arr.length; i++){
+console.log(arr[i]);
+}
+VM1944:2 10
+VM1944:2 20
+VM1944:2 30
+VM1944:2 40
+VM1944:2 50
+undefined
+var obj = {id:1001, name:'Ram'};
+undefined
+for(var key in obj){
+console.log(key);
+}
+VM2137:2 id
+VM2137:2 name
+undefined
+var dept = {"usa":90,"uk":88};
+undefined
+dept.uk
+88
+dept.usa
+90
+dept.usa = 100
+100
+dept;
+{usa: 100, uk: 88}
+for(var k in obj){
+console.log(k);
+}
+VM2291:2 id
+VM2291:2 name
+undefined
+dept['usa']
+100
+arr = [10,20,30];
+(3) [10, 20, 30]
+arr[0];
+10
+var key = 'usa';
+undefined
+dept.key
+undefined
+dept[key]
+100
+dept;
+{usa: 100, uk: 88}
+for(var key in dept){
+console.log(key, dept[key]);
+}
+VM2615:2 usa 100
+VM2615:2 uk 88
+undefined
+for(var key in dept){
+console.log(key, dept.key);
+}
+VM2640:2 usa undefined
+VM2640:2 uk undefined
+undefined
+dept;
+{usa: 100, uk: 88}
+dept.usa
+100
+var emp = {id:1001, name:'Ram',1:true,2:false}
+undefined
+emp.id
+1001
+emp.1
+VM2786:1 Uncaught SyntaxError: Unexpected number
+emp[1]
+true
+emp.prev companies = ['','','']
+VM2882:1 Uncaught SyntaxError: Unexpected identifier
+emp.['prev companies'] = ['A','B','C']
+VM2897:1 Uncaught SyntaxError: Unexpected token '['
+emp['prev companies'] = ['A','B','C']
+(3) ["A", "B", "C"]
+emp;
+{1: true, 2: false, id: 1001, name: "Ram", prev companies: Array(3)}1: true2: falseid: 1001name: "Ram"prev companies: (3) ["A", "B", "C"]__proto__: Object
+var f = 1000;
+undefined
+arr;
+(3) [10, 20, 30]
+typeof f;
+"number"
+typeof arr;
+"object"
+var d = new Number(1000);
+undefined
+typeof d;
+"object"
+f;
+1000
+d;
+Number {1000}
+d instanceof Number;
+true
+f instanceof Number;
+false
+f;
+1000
+f.toLocaleString('hi-IN')
+"1,000"
+typeof f;
+"number"
+var w = "Amit";
+undefined
+typeof w;
+"string"
+var w2 = new String("Amit");
+undefined
+w2;
+String {"Amit"}
+typeof w2;
+"object"
+w2 instanceof String;
+true
+w;
+"Amit"
+typeof w;
+"string"
+w instanceof String;
+false
+w.toUpperCase();
+"AMIT"
+w;
+"Amit"
+arr= [1,2,3,4];
+(4) [1, 2, 3, 4]
+arr.push(10000);
+5
+arr;
+(5) [1, 2, 3, 4, 10000]
+arr.shift(100);
+1
+arr.unshift(100);
+5
+arr;
+(5) [100, 2, 3, 4, 10000]
+arr;
+(5) [100, 2, 3, 4, 10000]
+arr.push(1);
+6
+arr;
+(6) [100, 2, 3, 4, 10000, 1]
+arr.unshift(888);
+7
+arr;
+(7) [888, 100, 2, 3, 4, 10000, 1]
+arr.shift();
+888
+arr;
+(6) [100, 2, 3, 4, 10000, 1]
+arr.pop();
+1
+arr;
+(5) [100, 2, 3, 4, 10000]
+arr[2] = 30;
+30
+arr;
+(5) [100, 2, 30, 4, 10000]
+arr.splice(2,1);
+[30]
+arr;
+(4) [100, 2, 4, 10000]
+arr.splice(1,1,8888);
+[2]
+arr;
+(4) [100, 8888, 4, 10000]
+arr.splice(0);
+(4) [100, 8888, 4, 10000]
+arr;
+[]
+arr = [10,20,30,40,50];
+(5) [10, 20, 30, 40, 50]
+arr.splice(1,0,7777);
+[]
+arr;
+(6) [10, 7777, 20, 30, 40, 50]
