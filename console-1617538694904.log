@@ -1,0 +1,417 @@
+function add(){
+    console.log("I am Add ");
+}
+undefined
+typeof add;
+"function"
+var x = 100;
+undefined
+typeof x;
+"number"
+var t = add;
+undefined
+typeof t;
+"function"
+t();
+VM356:2 I am Add 
+undefined
+add();
+VM356:2 I am Add 
+undefined
+function add(){
+    console.log("I am Add ");
+    console.log("Another Add Statement");
+}
+undefined
+add();
+VM566:2 I am Add 
+VM566:3 Another Add Statement
+undefined
+function add(){
+    console.log("I am Add ");
+    console.log("Another Add Statement");
+    return 10000;
+}
+undefined
+add();
+VM622:2 I am Add 
+VM622:3 Another Add Statement
+10000
+function add(x,y){
+     return x + y;   
+}
+undefined
+add(100,200);
+300
+add("Amit","Srivastava")
+"AmitSrivastava"
+add(true, true)
+2
+add();
+NaN
+undefined  + undefined
+NaN
+function add(x,y){
+    console.log(x, y);
+     return x + y;   
+}
+undefined
+add();
+VM913:2 undefined undefined
+NaN
+add(1,2,3,4,5,6)
+VM913:2 1 2
+3
+add();
+VM913:2 undefined undefined
+NaN
+function add(x=0,y=0){
+    console.log(x, y);
+     return x + y;   
+}
+undefined
+add();
+VM1026:2 0 0
+0
+add(100);
+VM1026:2 100 0
+100
+add(1000,2000);
+VM1026:2 1000 2000
+3000
+var f ;
+undefined
+typeof f;
+"undefined"
+if(typeof f==='undefined'){
+console.log('F is Undefined');
+}
+VM1287:2 F is Undefined
+undefined
+f = null;
+null
+if(f===null){
+console.log('F is null');
+}
+VM1375:2 F is null
+undefined
+f = null;
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1470:5 Falsy
+undefined
+f= undefined;
+undefined
+f = null;
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1497:5 Falsy
+undefined
+f=0;
+0
+f = null;
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1517:5 Falsy
+undefined
+f=NaN;
+NaN
+f = null;
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1541:5 Falsy
+undefined
+
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1546:5 Falsy
+undefined
+f=0;
+0
+
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1565:5 Falsy
+undefined
+f=null;
+null
+
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1583:5 Falsy
+undefined
+f=undefined;
+undefined
+
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1608:5 Falsy
+undefined
+f='';
+""
+
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1630:5 Falsy
+undefined
+f='Amit';
+"Amit"
+
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1658:3 Truthy
+undefined
+f=1000;
+1000
+
+if(f){
+console.log('Truthy');
+}else{
+console.log('Falsy');
+}
+VM1683:3 Truthy
+undefined
+function add(x=0,y=0){
+    console.log(x, y);
+     return x + y;   
+}
+undefined
+add(NaN, 100)
+VM1754:2 NaN 100
+NaN
+add('ten', 100)
+VM1754:2 ten 100
+"ten100"
+add('', 100)
+VM1754:2  100
+"100"
+function add(x,y){
+     x = x || 0;
+     y = y || 0;   
+     return x + y;   
+}
+undefined
+add(NaN, 100)
+100
+add(NaN, NaN)
+0
+add(undefined, 1000);
+1000
+add('',1000);
+1000
+add(100,200);
+300
+function add(){
+    console.log("Add Call ");
+}
+undefined
+add(1,2,3,4,5,6);
+VM2143:2 Add Call 
+undefined
+add();
+VM2143:2 Add Call 
+undefined
+add([100,200],"Hello", 90);
+VM2143:2 Add Call 
+undefined
+console.dir(add);
+VM2315:1 ƒ add()arguments: nullcaller: nulllength: 0name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM2143:1[[Scopes]]: Scopes[1]
+undefined
+function add(){
+    
+    console.log("Add Call ",arguments.length);
+}
+undefined
+add(100,200,300,400);
+VM2379:3 Add Call  4
+undefined
+add();
+VM2379:3 Add Call  0
+undefined
+add("Hello", 100);
+VM2379:3 Add Call  2
+undefined
+function add(){
+    var sum = 0;
+    return sum;
+}
+undefined
+add();
+0
+add(1,20);
+0
+function add(){
+    var sum = 0;
+    for(var i = 0;i<arguments.length; i++){
+        sum+=arguments[i];
+}
+    return sum;
+}
+undefined
+add(1,2,3,4,5,6);
+21
+add(1,2,3);
+6
+var arr = [10,20,30];
+undefined
+arr instanceof Array;
+true
+typeof arr;
+"object"
+function add(){
+    var sum = 0;
+    console.log(arguments instanceof Array);
+    for(var i = 0;i<arguments.length; i++){
+        sum+=arguments[i];
+}
+    return sum;
+}
+undefined
+add(1,2,3);
+VM3024:3 false
+6
+arr;
+(3) [10, 20, 30]
+arr.length
+3
+function add(){
+    var sum = 0;
+    console.log(arguments);
+    console.log(arguments instanceof Array);
+    for(var i = 0;i<arguments.length; i++){
+        sum+=arguments[i];
+}
+    return sum;
+}
+undefined
+add(1,2,3);
+VM3158:3 Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]0: 11: 22: 3callee: ƒ add()length: 3Symbol(Symbol.iterator): ƒ values()__proto__: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+VM3158:4 false
+6
+arr;
+(3) [10, 20, 30]0: 101: 202: 30length: 3__proto__: Array(0)
+add(1,2,3, "amit");
+VM3158:3 Arguments(4) [1, 2, 3, "amit", callee: ƒ, Symbol(Symbol.iterator): ƒ]
+VM3158:4 false
+"6amit"
+add("1",2,3);
+VM3158:3 Arguments(3) ["1", 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+VM3158:4 false
+"0123"
+function add(){
+    var sum = 0;
+    console.log(arguments);
+    console.log(arguments instanceof Array);
+    for(var i = 0;i<arguments.length; i++){
+        sum+=parseInt(arguments[i]);
+}
+    return sum;
+}
+undefined
+add("1",2,3);
+VM3296:3 Arguments(3) ["1", 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+VM3296:4 false
+6
+function add(){
+    var sum = 0;
+    //console.log(arguments);
+    //console.log(arguments instanceof Array);
+    for(var i = 0;i<arguments.length; i++){
+        sum+=parseInt(arguments[i]);
+}
+    return sum;
+}
+undefined
+add("1",2,"3");
+6
+add("one",2,"3");
+NaN
+parseInt("100")
+100
+parseInt("hundred")
+NaN
+function add(){
+    var sum = 0;
+    //console.log(arguments);
+    //console.log(arguments instanceof Array);
+    for(var i = 0;i<arguments.length; i++){
+        sum+=parseInt(arguments[i]);
+}
+    return sum;
+}
+undefined
+isNaN(parseInt("amit"))
+true
+isNaN(parseInt("amit"))?0:100
+0
+function add(){
+    var sum = 0;
+    //console.log(arguments);
+    //console.log(arguments instanceof Array);
+    for(var i = 0;i<arguments.length; i++){
+        sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+    return sum;
+}
+undefined
+add("one",2,"3");
+5
+function one(){
+return 1;
+}
+undefined
+function two(){
+return "2";
+}
+undefined
+add(1,"2",one, two,"three");
+3
+parseInt(one);
+NaN
+parseInt(one());
+1
+function add(){
+    var sum = 0;
+    //console.log(arguments);
+    //console.log(arguments instanceof Array);
+    for(var i = 0;i<arguments.length; i++){
+        if(typeof arguments[i]==='function'){
+            arguments[i] = arguments[i]();
+}
+        sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+    return sum;
+}
+undefined
+add(one, two, "2","3", "three");
+8
