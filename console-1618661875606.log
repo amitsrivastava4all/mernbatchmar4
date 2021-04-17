@@ -1,0 +1,121 @@
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+sum+=arguments[i];
+}
+return sum;
+}
+undefined
+add(10,20,30,40,50);
+150
+add(10,"20",30,40,50);
+"1020304050"
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+sum+=parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"20",30,40,50);
+150
+add(10,"twenty",30,40,50);
+NaN
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"twenty",30,40,50);
+130
+function one(){
+return "1";
+}
+undefined
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+if(typeof argument[i]==="function"){
+arguments[i] = arguments[i]();
+}
+sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"twenty",one,40,50);
+VM541:4 Uncaught ReferenceError: argument is not defined
+    at add (<anonymous>:4:1)
+    at <anonymous>:1:1
+add @ VM541:4
+(anonymous) @ VM558:1
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+if(typeof arguments[i]==="function"){
+arguments[i] = arguments[i]();
+}
+sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"twenty",one,40,50);
+101
+add(10,"twenty",one,40,50,[1,"2"]);
+102
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+if(arguments[i] instanceof Array){
+var arr = arguments[i];
+var sum2=0;
+for(var j = 0; j<arr.length; j++){
+sum2+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+arguments[i] = sum2;
+}
+else
+if(typeof arguments[i]==="function"){
+arguments[i] = arguments[i]();
+}
+sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"twenty",one,40,50,[1,"2"]);
+103
+function add(){
+var sum = 0;
+for(var i = 0; i<arguments.length; i++){
+if(arguments[i] instanceof Array){
+var arr = arguments[i];
+var sum2=0;
+for(var j = 0; j<arr.length; j++){
+sum2+=isNaN(parseInt(arr[j]))?0:parseInt(arr[j]);
+}
+arguments[i] = sum2;
+}
+else
+if(typeof arguments[i]==="function"){
+arguments[i] = arguments[i]();
+}
+sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+}
+return sum;
+}
+undefined
+add(10,"twenty",one,40,50,[1,"2"]);
+104
+console.dir(add);
+VM1035:1 ƒ add()arguments: nullcaller: nulllength: 0name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM966:1[[Scopes]]: Scopes[1]
+undefined
+parseInt("Amit")
+NaN
+parseInt("10")
+10
