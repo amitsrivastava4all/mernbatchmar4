@@ -1,0 +1,303 @@
+function show(){
+console.log("I am Show ");
+}
+undefined
+show();
+VM80:2 I am Show 
+undefined
+function show(){
+console.log("I am Show ", arguments.length);
+}
+undefined
+show(100,200);
+VM157:2 I am Show  2
+undefined
+add();
+function add(){
+    console.log("I am add ");
+}
+VM270:3 I am add 
+undefined
+adder();
+var adder = function(){
+    console.log("I am Adder ");
+}
+VM359:1 Uncaught TypeError: adder is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM359:1
+function test(){
+// var i; // Variable Hositing
+console.log("I is ",i); // i is undefined
+for(var i = 1; i<=10; i++){
+console.log('I is ',i);
+}
+console.log("After Loop ",i);
+}
+undefined
+test();
+VM601:3 I is  undefined
+VM601:5 I is  1
+VM601:5 I is  2
+VM601:5 I is  3
+VM601:5 I is  4
+VM601:5 I is  5
+VM601:5 I is  6
+VM601:5 I is  7
+VM601:5 I is  8
+VM601:5 I is  9
+VM601:5 I is  10
+VM601:7 After Loop  11
+undefined
+// var adder; // Hoisting (adder --> undefined)
+adder(); // undefined();
+var adder = function(){
+    console.log("I am Adder ");
+}
+VM683:2 Uncaught TypeError: adder is not a function
+    at <anonymous>:2:1
+(anonymous) @ VM683:2
+window;
+Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+typeof window;
+"object"
+show
+ƒ show(){
+console.log("I am Show ", arguments.length);
+}
+window.show();
+VM157:2 I am Show  0
+undefined
+show();// window.show();
+VM157:2 I am Show  0
+undefined
+function Calculator(){
+var add = function(x,y){
+    return x + y;
+}
+var sub = function(x,y){
+    return x - y;
+}
+return [add, sub];
+}
+var arr = Calculator();
+
+/*function Order(){
+var add = function(){
+
+}
+}*/
+undefined
+arr;
+(2) [ƒ, ƒ]0: ƒ (x,y)arguments: nullcaller: nulllength: 2name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM1098:2[[Scopes]]: Scopes[1]1: ƒ (x,y)arguments: nullcaller: nulllength: 2name: "sub"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM1098:5[[Scopes]]: Scopes[1]length: 2__proto__: Array(0)
+arr[0]
+ƒ (x,y){
+    return x + y;
+}
+arr[1]
+ƒ (x,y){
+    return x - y;
+}
+arr[0](100,200);
+300
+arr[1](100,200);
+-100
+arr;
+(2) [ƒ, ƒ]0: ƒ (x,y)1: ƒ (x,y)length: 2__proto__: Array(0)
+function Calculator(){
+var add = function add(x,y){
+    return x + y;
+}
+var sub = function sub(x,y){
+    return x - y;
+}
+return [add, sub];
+}
+var arr = Calculator();
+
+/*function Order(){
+var add = function(){
+
+}
+}*/
+undefined
+arr;
+(2) [ƒ, ƒ]0: ƒ add(x,y)1: ƒ sub(x,y)length: 2__proto__: Array(0)
+arr[0];
+ƒ add(x,y){
+    return x + y;
+}
+arr[0](100,200);
+300
+function Calculator(){
+var add = function add(x,y){
+    return x + y;
+}
+var sub = function sub(x,y){
+    return x - y;
+}
+//return [add, sub];
+return {"adder":add,"subtract":sub};
+}
+var arr = Calculator();
+
+/*function Order(){
+var add = function(){
+
+}
+}*/
+undefined
+arr;
+{adder: ƒ, subtract: ƒ}
+arr.adder(100,200);
+300
+arr.subtract(100,2000);
+-1900
+function Calculator(){
+var add = function add(x,y){
+    return x + y;
+}
+var sub = function sub(x,y){
+    return x - y;
+}
+//return [add, sub];
+//return {"adder":add,"subtract":sub};
+return {add, sub};
+}
+var arr = Calculator();
+
+/*function Order(){
+var add = function(){
+
+}
+}*/
+undefined
+arr;
+{add: ƒ, sub: ƒ}
+arr.add(100,200);
+300
+arr.sub(100,200);
+-100
+var x = 100;
+undefined
+var obj  = {x:100};
+undefined
+var obj2 = {x};
+undefined
+obj2;
+{x: 100}
+obj;
+{x: 100}
+function Calculator(z){
+var add = function add(x,y){
+    return x + y + z;
+}
+var sub = function sub(x,y){
+    return x - y - z;
+}
+//return [add, sub];
+//return {"adder":add,"subtract":sub};
+return {add, sub};
+}
+var obj = Calculator(100);
+obj.add(1,2);
+
+103
+obj.add
+ƒ add(x,y){
+    return x + y + z;
+}
+console.dir(obj.add);
+VM1967:1 ƒ add(x,y)arguments: nullcaller: nulllength: 2name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM1882:2[[Scopes]]: Scopes[2]0: Closure (Calculator) {z: 100}1: Global {window: Window, self: Window, document: document, name: "", location: Location, …}
+undefined
+function countDown(){
+var count = 0;
+count++;
+return count;
+}
+undefined
+countDown();
+1
+countDown();
+1
+function init(){
+var count = 0;
+return function countDown(){
+
+count++;
+return count;
+}
+}
+undefined
+var fn = init();
+undefined
+console.dir(fn);
+VM2244:1 ƒ countDown()arguments: nullcaller: nulllength: 0name: "countDown"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM2137:3[[Scopes]]: Scopes[2]0: Closure (init) {count: 0}1: Global {window: Window, self: Window, document: document, name: "", location: Location, …}
+undefined
+fn();
+1
+fn();
+2
+fn();
+3
+fn();
+4
+fn();
+5
+fn();
+6
+count;
+VM2303:1 Uncaught ReferenceError: count is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM2303:1
+fn();
+7
+fn();
+8
+fn();
+9
+var fn2 = init();
+undefined
+fn2();
+1
+fn2();
+2
+fn2();
+3
+fn2();
+4
+(function (){
+var count = 0;
+return function countDown(){
+
+count++;
+return count;
+}
+})();
+ƒ countDown(){
+
+count++;
+return count;
+}
+var fn = (function (){
+var count = 0;
+return function countDown(){
+
+count++;
+return count;
+}
+})();
+undefined
+fn();
+1
+fn();
+2
+fn();
+3
+fn();
+4
+fn();
+5
+fn();
+6
+fn();
+7
