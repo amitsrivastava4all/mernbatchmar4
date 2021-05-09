@@ -1,0 +1,185 @@
+function Calculator(z){
+var add = function add(x,y){
+    return x + y + z;
+}
+var sub = function sub(x,y){
+    return x - y - z;
+}
+//return [add, sub];
+//return {"adder":add,"subtract":sub};
+return {add, sub};
+}
+var obj = Calculator(100);
+obj.add(1,2);
+
+103
+console.dir(obj.add);
+VM241:1 ƒ add(x,y)arguments: nullcaller: nulllength: 2name: "add"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM158:2[[Scopes]]: Scopes[2]0: Closure (Calculator) {z: 100}1: Global {window: Window, self: Window, document: document, name: "", location: Location, …}
+undefined
+function add(a,b){
+return a + b;
+}
+undefined
+const adder = (a,b)=>a+b;
+undefined
+typeof adder;
+"function"
+adder(100,200);
+300
+const adder2 = (a,b)=>{
+console.log(`A is ${a} and B is ${b}`);
+return a + b;
+}
+undefined
+typeof adder2;
+"function"
+adder2(1000,2000);
+VM542:2 A is 1000 and B is 2000
+3000
+var arr = [10, 20,30,40,50,60,70];
+undefined
+var sum = 0;
+for(let i = 0 ; i<arr.length; i++){
+sum+=arr[i];
+}
+console.log('Sum is ', sum);
+VM882:5 Sum is  280
+undefined
+arr;
+(7) [10, 20, 30, 40, 50, 60, 70]
+for(let i = 0; i<arr.length; i++){
+console.log(arr[i]);
+}
+VM1012:2 10
+VM1012:2 20
+VM1012:2 30
+VM1012:2 40
+VM1012:2 50
+VM1012:2 60
+VM1012:2 70
+undefined
+arr.forEach
+ƒ forEach() { [native code] }
+typeof arr.forEach
+"function"
+function printIt(element){
+    console.log('Element is ', element);
+}
+arr.forEach(printIt);
+VM1280:2 Element is  10
+VM1280:2 Element is  20
+VM1280:2 Element is  30
+VM1280:2 Element is  40
+VM1280:2 Element is  50
+VM1280:2 Element is  60
+VM1280:2 Element is  70
+undefined
+arr.forEach((element)=>console.log('Element is ',element));
+VM1425:1 Element is  10
+VM1425:1 Element is  20
+VM1425:1 Element is  30
+VM1425:1 Element is  40
+VM1425:1 Element is  50
+VM1425:1 Element is  60
+VM1425:1 Element is  70
+undefined
+arr.forEach((element, index)=>console.log('Element is ',element, ' Index ',index));
+VM1471:1 Element is  10  Index  0
+VM1471:1 Element is  20  Index  1
+VM1471:1 Element is  30  Index  2
+VM1471:1 Element is  40  Index  3
+VM1471:1 Element is  50  Index  4
+VM1471:1 Element is  60  Index  5
+VM1471:1 Element is  70  Index  6
+undefined
+arr.forEach((e, i)=>console.log('Element is ',e, ' Index ',i));
+VM1492:1 Element is  10  Index  0
+VM1492:1 Element is  20  Index  1
+VM1492:1 Element is  30  Index  2
+VM1492:1 Element is  40  Index  3
+VM1492:1 Element is  50  Index  4
+VM1492:1 Element is  60  Index  5
+VM1492:1 Element is  70  Index  6
+undefined
+arr.forEach((e, i, a)=>console.log('Element is ',e, ' Index ',i, ' Array ',a));
+VM1527:1 Element is  10  Index  0  Array  (7) [10, 20, 30, 40, 50, 60, 70]
+VM1527:1 Element is  20  Index  1  Array  (7) [10, 20, 30, 40, 50, 60, 70]
+VM1527:1 Element is  30  Index  2  Array  (7) [10, 20, 30, 40, 50, 60, 70]
+VM1527:1 Element is  40  Index  3  Array  (7) [10, 20, 30, 40, 50, 60, 70]
+VM1527:1 Element is  50  Index  4  Array  (7) [10, 20, 30, 40, 50, 60, 70]
+VM1527:1 Element is  60  Index  5  Array  (7) [10, 20, 30, 40, 50, 60, 70]
+VM1527:1 Element is  70  Index  6  Array  (7) [10, 20, 30, 40, 50, 60, 70]
+undefined
+arr;
+(7) [10, 20, 30, 40, 50, 60, 70]
+arr.find(element=>element==40);
+40
+arr.find(element=>element==400);
+undefined
+arr.findIndex(element=>element==40);
+3
+arr.findIndex(element=>element==400);
+-1
+arr.filter(element=>element>40);
+(3) [50, 60, 70]
+arr.filter(element=>element>40);
+(3) [50, 60, 70]
+const sub = (a,b)=> a - b;
+undefined
+sub(100,200);
+-100
+const cube = a=>a**3;
+undefined
+cube(3);
+27
+const show = ()=>10000;
+undefined
+show();
+10000
+arr;
+(7) [10, 20, 30, 40, 50, 60, 70]
+var arr2 = arr.filter(element=>true);
+undefined
+arr2;
+(7) [10, 20, 30, 40, 50, 60, 70]
+arr;
+(7) [10, 20, 30, 40, 50, 60, 70]
+arr2== arr;
+false
+var prices =[1000,2000,53453,654654,32321,22222];
+undefined
+prices.map(price=> price * 0.18);
+(6) [180, 360, 9621.539999999999, 117837.72, 5817.78, 3999.96]
+prices.map(price=> price + price * 0.18);
+(6) [1180, 2360, 63074.54, 772491.72, 38138.78, 26221.96]
+prices;
+(6) [1000, 2000, 53453, 654654, 32321, 22222]
+var priceWithGST = prices.map(price=> price + price * 0.18);
+undefined
+priceWithGST;
+(6) [1180, 2360, 63074.54, 772491.72, 38138.78, 26221.96]
+prices
+(6) [1000, 2000, 53453, 654654, 32321, 22222]
+var p = 100000;
+undefined
+p.toLocaleString('hi-IN');
+"1,00,000"
+prices.map(price=> price.toLocaleString('hi-IN'));
+(6) ["1,000", "2,000", "53,453", "6,54,654", "32,321", "22,222"]
+prices.map(price=> 'Rs '+price.toLocaleString('hi-IN'));
+(6) ["Rs 1,000", "Rs 2,000", "Rs 53,453", "Rs 6,54,654", "Rs 32,321", "Rs 22,222"]
+prices;
+(6) [1000, 2000, 53453, 654654, 32321, 22222]
+var parr2=prices.map(price=>price);
+undefined
+parr2;
+(6) [1000, 2000, 53453, 654654, 32321, 22222]
+prices.reduce((acc, current)=>acc+current, acc=0);
+765650
+var names= ['amit','anil','ajay'];
+undefined
+names.forEach(name=>console.log(name));
+VM3396:1 amit
+VM3396:1 anil
+VM3396:1 ajay
+undefined
