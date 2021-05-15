@@ -1,0 +1,271 @@
+var obj = {id:1001, name:'Amit'};
+undefined
+obj.id;
+1001
+obj.name
+"Amit"
+obj["id"]
+1001
+var myId = "id";
+undefined
+obj[myId];
+1001
+obj;
+{id: 1001, name: "Amit"}
+obj.salary=999999;
+999999
+obj;
+{id: 1001, name: "Amit", salary: 999999}
+obj['city'] = 'Mumbai';
+"Mumbai"
+obj;
+{id: 1001, name: "Amit", salary: 999999, city: "Mumbai"}
+obj.1 = true;
+VM390:1 Uncaught SyntaxError: Unexpected number
+obj[1]= true;
+true
+obj;
+{1: true, id: 1001, name: "Amit", salary: 999999, city: "Mumbai"}
+obj.1;
+VM463:1 Uncaught SyntaxError: Unexpected number
+obj[1]
+true
+obj['street address'] = 'HNo -10';
+"HNo -10"
+obj;
+{1: true, id: 1001, name: "Amit", salary: 999999, city: "Mumbai", street address: "HNo -10"}
+obj['street address'];
+"HNo -10"
+for(let key in obj){
+    console.log(key);
+}
+VM698:2 1
+VM698:2 id
+VM698:2 name
+VM698:2 salary
+VM698:2 city
+VM698:2 street address
+undefined
+for(let key in obj){
+    console.log(key, obj[key]);
+}
+VM733:2 1 true
+VM733:2 id 1001
+VM733:2 name Amit
+VM733:2 salary 999999
+VM733:2 city Mumbai
+VM733:2 street address HNo -10
+undefined
+obj;
+{1: true, id: 1001, name: "Amit", salary: 999999, city: "Mumbai", street address: "HNo -10"}
+delete obj.city;
+true
+obj;
+{1: true, id: 1001, name: "Amit", salary: 999999, street address: "HNo -10"}
+typeof obj;
+"object"
+obj instanceof Object;
+true
+typeof Object;
+"function"
+var arr = [10,20,30,40];
+undefined
+typeof arr;
+"object"
+arr instanceof Array;
+true
+arr instanceof Object;
+true
+var customer = {};
+undefined
+customer.id = 1001;
+1001
+customer.name = 'Amit';
+"Amit"
+customer.balance = 9999;
+9999
+customer;
+{id: 1001, name: "Amit", balance: 9999}
+function createCustomer(id , name , balance){
+    var customer = {};
+    customer.id = id;
+    customer.name = name;
+    customer.balance = balance;
+    return customer;
+}
+undefined
+var amit = createCustomer(1001, "Amit", 9999);
+undefined
+amit;
+{id: 1001, name: "Amit", balance: 9999}
+var ram = createCustomer(1002, "Ram",8888);
+undefined
+ram;
+{id: 1002, name: "Ram", balance: 8888}
+typeof amit;
+"object"
+typeof ram;
+"object"
+amit == ram;
+false
+amit instanceof Object;
+true
+ram instanceof Object;
+true
+function Customer(id , name , balance){
+    console.log(this);
+}
+var amit = new Customer(1001, "Amit", 9999);
+VM2034:2 Customer {}
+undefined
+function Customer(id , name , balance){
+    //console.log(this);
+    this.id = id;
+    this.name = name;
+    this.balance = balance;
+}
+var amit = new Customer(1001, "Amit", 9999);
+undefined
+amit;
+Customer {id: 1001, name: "Amit", balance: 9999}
+amit instanceof Customer;
+true
+ram instanceof createCustomer;
+false
+amit instanceof Object;
+true
+var tim = new Customer(1002, "Tim",7777);
+undefined
+amit;
+Customer {id: 1001, name: "Amit", balance: 9999}
+tim;
+Customer {id: 1002, name: "Tim", balance: 7777}
+amit instanceof Customer;
+true
+tim instanceof Customer;
+true
+amit == tim;
+false
+function Customer(id , name , balance){
+    //console.log(this);
+    this.id = id;
+    this.name = name;
+    this.balance = balance;
+    this.print= function(){
+        console.log(` Id ${this.id} Name ${this.name} Balance ${this.balance}`);
+}
+}
+var amit = new Customer(1001, "Amit", 9999);
+undefined
+amit;
+Customer {id: 1001, name: "Amit", balance: 9999, print: ƒ}
+amit.print();
+VM2624:7  Id 1001 Name Amit Balance 9999
+undefined
+var tim = new Customer(1002, "Tim",7777);
+undefined
+tim;
+Customer {id: 1002, name: "Tim", balance: 7777, print: ƒ}
+function Customer(id , name , balance){
+    //console.log(this);
+    this.id = id;
+    this.name = name;
+    this.balance = balance;
+    /*this.print= function(){
+        console.log(` Id ${this.id} Name ${this.name} Balance ${this.balance}`);
+}*/
+}
+var amit = new Customer(1001, "Amit", 9999);
+undefined
+typeof Customer;
+"function"
+Customer;
+ƒ Customer(id , name , balance){
+    //console.log(this);
+    this.id = id;
+    this.name = name;
+    this.balance = balance;
+    /*this.print= function(){
+        console.log(` Id ${this.id} Name ${th…
+console.dir(Customer);
+VM2910:1 ƒ Customer(id , name , balance)arguments: nullcaller: nulllength: 3name: "Customer"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM2749:1[[Scopes]]: Scopes[1]
+undefined
+Customer.prototype.print = function(){
+    console.log(`Id ${this.id} Name ${this.name} Balance ${this.balance}`);
+}
+ƒ (){
+    console.log(`Id ${this.id} Name ${this.name} Balance ${this.balance}`);
+}
+Customer;
+ƒ Customer(id , name , balance){
+    //console.log(this);
+    this.id = id;
+    this.name = name;
+    this.balance = balance;
+    /*this.print= function(){
+        console.log(` Id ${this.id} Name ${th…
+Customer.prototype;
+{print: ƒ, constructor: ƒ}print: ƒ ()constructor: ƒ Customer(id , name , balance)__proto__: Object
+Customer.prototype.print
+ƒ (){
+    console.log(`Id ${this.id} Name ${this.name} Balance ${this.balance}`);
+}
+var amit = new Customer(1001, 'Amit', 88888);
+undefined
+amit;
+Customer {id: 1001, name: "Amit", balance: 88888}
+var tim =new Customer(1002, 'Tim', 7777);
+undefined
+tim;
+Customer {id: 1002, name: "Tim", balance: 7777}
+amit;
+Customer {id: 1001, name: "Amit", balance: 88888}balance: 88888id: 1001name: "Amit"__proto__: print: ƒ ()constructor: ƒ Customer(id , name , balance)__proto__: Object
+amit.print();
+VM3061:2 Id 1001 Name Amit Balance 88888
+undefined
+amit.__proto__
+{print: ƒ, constructor: ƒ}
+amit.__proto__ == Customer.prototype;
+true
+amit.__proto__.__proto__== Object.prototype;
+true
+amit.__proto__.__proto__.__proto__;
+null
+Object.prototype.myFunction = function(){
+return "This is my Custom Function ";
+}
+ƒ (){
+return "This is my Custom Function ";
+}
+typeof window;
+"object"
+window instanceof Window;
+true
+window instanceof Object;
+true
+window.myFunction();
+"This is my Custom Function "
+myFunction();
+"This is my Custom Function "
+var arr = [10,20,30];
+undefined
+arr.myFunction();
+"This is my Custom Function "
+arr instanceof Array;
+true
+arr instanceof Object;
+true
+Customer.prototype;
+{print: ƒ, constructor: ƒ}
+Customer;
+ƒ Customer(id , name , balance){
+    //console.log(this);
+    this.id = id;
+    this.name = name;
+    this.balance = balance;
+    /*this.print= function(){
+        console.log(` Id ${this.id} Name ${th…
+Customer.prototype
+{print: ƒ, constructor: ƒ}print: ƒ ()constructor: ƒ Customer(id , name , balance)__proto__: Object
+Customer == Customer.prototype.constructor;
+true
