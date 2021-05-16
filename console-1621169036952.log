@@ -1,0 +1,168 @@
+function Employee(id , name, salary){
+    this.id = id;
+    this.name = name;
+    this.salary = salary;
+}
+Employee.prototype.companyName = 'Google';
+Employee.prototype.hra = function(){
+return this.salary * 0.30;
+}
+Employee.prototype.da = function(){
+return this.salary * 0.10;
+}
+Employee.prototype.ta = function(){
+return this.salary * 0.20;
+}
+Employee.prototype.pf = function(){
+return this.salary * 0.05;
+}
+Employee.prototype.gs = function(){
+return this.salary + this.hra() + this.da() + this.ta();
+}
+Employee.prototype.ns = function(){
+return this.gs() - this.pf();
+}
+ƒ (){
+return this.gs() - this.pf();
+}
+typeof Employee;
+"function"
+Employee.prototype
+{companyName: "Google", hra: ƒ, da: ƒ, ta: ƒ, pf: ƒ, …}companyName: "Google"da: ƒ ()gs: ƒ ()hra: ƒ ()ns: ƒ ()pf: ƒ ()ta: ƒ ()constructor: ƒ Employee(id , name, salary)__proto__: Object
+var amit = new Employee(1001, 'Amit',9000);
+undefined
+amit.ns();
+13950
+Employee.prototype.printSalarySlip = function(){
+let output = `Id is ${this.id}`;
+}
+ƒ (){
+let output = `Id is ${this.id}`;
+}
+Employee.prototype.printSalarySlip = function(){
+let output = ` Brain Mentors
+    Id is ${this.id}
+    Name is ${this.name}
+    Salary is ${this.salary}
+    Company Name ${this.companyName}
+    HRA is ${this.hra()}
+    DA is ${this.da()}
+    TA is ${this.ta()}
+    PF is ${this.pf()}
+    GS is ${this.gs()}
+    NS is ${this.ns()}
+`;
+console.log(output);
+}
+ƒ (){
+let output = ` Brain Mentors
+    Id is ${this.id}
+    Name is ${this.name}
+    Salary is ${this.salary}
+    Company Name ${this.companyName}
+    HRA is ${this.hra()}
+    DA is ${this.da()}
+    TA…
+amit.printSalarySlip();
+VM1432:14  Brain Mentors
+    Id is 1001
+    Name is Amit
+    Salary is 9000
+    Company Name Google
+    HRA is 2700
+    DA is 900
+    TA is 1800
+    PF is 450
+    GS is 14400
+    NS is 13950
+
+undefined
+amit;
+Employee {id: 1001, name: "Amit", salary: 9000}id: 1001name: "Amit"salary: 9000__proto__: ObjectcompanyName: "Google"da: ƒ ()gs: ƒ ()hra: ƒ ()ns: ƒ ()pf: ƒ ()printSalarySlip: ƒ ()ta: ƒ ()constructor: ƒ Employee(id , name, salary)__proto__: Object
+amit.__proto__ == Employee.prototype;
+true
+function Person(name, age, address){
+    this.name = name;
+    this.age = age;
+    this.address = address;
+}
+Person.prototype.print= function(){
+    console.log(`Name ${this.name} Age ${this.age} Address ${this.address}`);
+}
+function Customer(id, balance){
+    this.id = id;
+    this.balance = balance;
+}
+Customer.prototype.printCustomer = function(){
+    console.log(`Id ${this.id} Balance ${this.balance}`);
+}
+ƒ (){
+    console.log(`Id ${this.id} Balance ${this.balance}`);
+}
+Customer.prototype.__proto__ == Object.prototype;
+true
+Person.prototype.__proto__ == Object.prototype;
+true
+Customer.prototype.__proto__ == Person.prototype;
+false
+Customer.prototype.__proto__ = Person.prototype;
+{print: ƒ, constructor: ƒ}
+Customer.prototype.__proto__ == Person.prototype;
+true
+Customer.prototype;
+Person {printCustomer: ƒ, constructor: ƒ}printCustomer: ƒ ()constructor: ƒ Customer(id, balance)__proto__: print: ƒ ()constructor: ƒ Person(name, age, address)__proto__: Object
+Customer.prototype.__proto__
+{print: ƒ, constructor: ƒ}
+Customer.prototype.__proto__.__proto__
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+Customer.prototype.__proto__.__proto__ == Object.prototype;
+true
+var tim =new Customer(1001, 9999);
+tim.printCustomer();
+VM2240:14 Id 1001 Balance 9999
+undefined
+tim.print();
+VM2240:7 Name undefined Age undefined Address undefined
+undefined
+var obj= {};
+undefined
+obj.id =1001;
+1001
+obj.name='Amit';
+"Amit"
+obj;
+{id: 1001, name: "Amit"}
+Customer.prototype;
+Person {printCustomer: ƒ, constructor: ƒ}
+Customer.prototype.constructor
+ƒ Customer(id, balance){
+    this.id = id;
+    this.balance = balance;
+}
+Customer.prototype.constructor == Customer;
+true
+Customer.prototype
+Person {printCustomer: ƒ, constructor: ƒ}printCustomer: ƒ ()constructor: ƒ Customer(id, balance)__proto__: Object
+function Person(name, age, address){
+    this.name = name;
+    this.age = age;
+    this.address = address;
+}
+Person.prototype.print= function(){
+    console.log(`Name ${this.name} Age ${this.age} Address ${this.address}`);
+}
+function Customer(id, balance, name, age, address){
+    Person.call(this, name, age, address);
+    this.id = id;
+    this.balance = balance;
+}
+Customer.prototype.printCustomer = function(){
+    this.print();
+    console.log(`Id ${this.id} Balance ${this.balance}`);
+}
+Customer.prototype.__proto__= Person.prototype;
+var amit= new Customer(1001, 9999, 'Amit',21,'Delhi');
+amit.printCustomer();
+VM3606:7 Name Amit Age 21 Address Delhi
+VM3606:16 Id 1001 Balance 9999
+undefined
