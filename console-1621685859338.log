@@ -1,0 +1,28 @@
+var arr = [10,20,30];
+undefined
+var [a,b ] =arr;
+undefined
+a;
+10
+b;
+20
+var [a,b,c ] =arr;
+undefined
+c;
+30
+var [a,,c ] =arr;
+undefined
+c;
+30
+a;
+10
+b;
+20
+var obj = {x:1000, y:2000};
+undefined
+var {x,y} = obj;
+undefined
+x;
+1000
+y;
+2000
