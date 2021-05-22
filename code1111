@@ -1,0 +1,55 @@
+var obj = {
+arr:[10,1,5,7,100,33],
+evenArr:[],
+getEven(){
+   
+   this.arr.forEach((element)=>{
+       if(element%2==0){
+        this.evenArr.push(element);
+} 
+}); 
+}
+}
+obj.getEven();
+
+var obj = {
+arr:[10,1,5,7,100,33],
+evenArr:[],
+getEven(){
+    var that = this;
+   this.arr.forEach(function(element){
+       if(element%2==0){
+        that.evenArr.push(element);
+} 
+}); 
+}
+}
+obj.getEven();
+
+class A1{
+    constructor(){
+        console.log("i am A1 Cons ");
+}
+   show(){
+    console.log("I am Show ");
+} 
+}
+class B1 extends A1{
+constructor(){
+        super();
+        console.log("i am B1 Cons ");
+}
+show(){
+    super.show();
+    console.log("I am Show in B1 ");
+} 
+}
+
+var b1 = new B1();
+b1.show();
+
+class A{
+static show(){
+    console.log('A Show ');
+}
+}
