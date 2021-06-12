@@ -1,0 +1,35 @@
+Hooks - Functional Component
+Providing the smart component features in Dumb by using Hooks
+
+Functional Component main role -Presentaion
+
+Class Based Components - Presentaion + state + refs + life cycle
+
+But using hooks in functional component - state handle + refs + life cycle
+
+REASON:::
+Class are Heavy - Inherit from Component (state, refs, life cycle, props)
+
+Hooks injecting what u want - so functional component are light
+
+1. this.refs
+2. this.setState
+3. this.fn.bind(this)
+Developer must know this , bind
+So functional component (Arrow Based) not having this, bind
+Classes are poor to minify
+
+
+Input Ways
+1. Event Bind (onChange)
+Ref use
+1. String ref (old and deprected)
+2. React.createRef - we get ref reference variable - Smart
+3. useRef Hook - Functional Component
+4. CallBack Ref -
+
+
+
+Event Bind
+this.eventName.bind(this);
+Arrow Function
