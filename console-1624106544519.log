@@ -1,0 +1,163 @@
+console.log("I am Start ");
+setTimeout(()=>{
+console.log("I will Call after 5 sec ");
+}, 5000);
+console.log("I am End ");
+VM213:1 I am Start 
+VM213:5 I am End 
+undefined
+VM213:3 I will Call after 5 sec 
+console.log("I am Start ");
+var e = work();
+console.log("I am End ",e);
+function work(){
+setTimeout(()=>{
+console.log("I will Call after 5 sec ");
+return 1000;
+}, 5000);
+}
+VM308:1 I am Start 
+VM308:3 I am End  undefined
+undefined
+VM308:6 I will Call after 5 sec 
+function giveMeData(result){
+console.log("Data is Here ", result);
+}
+console.log("I am Start ");
+var e = work(giveMeData);
+console.log("I am End ",e);
+function work(fn){
+setTimeout(()=>{
+console.log("I will Call after 5 sec ");
+fn(1000);
+}, 5000);
+}
+VM455:4 I am Start 
+VM455:6 I am End  undefined
+undefined
+VM455:9 I will Call after 5 sec 
+VM455:2 Data is Here  1000
+console.log("I am Start ");
+var promise = work();
+console.log("I am End ",promise);
+function work(){
+setTimeout(()=>{
+console.log("I will Call after 5 sec ");
+return 1000;
+}, 5000);
+}
+VM542:1 I am Start 
+VM542:3 I am End  undefined
+undefined
+VM542:6 I will Call after 5 sec 
+console.log("I am Start ");
+var promise = work();
+console.log("I am End ",promise);
+function work(){
+setTimeout(()=>{
+console.log("I will Call after 5 sec ");
+return 1000;
+}, 5000);
+}
+VM545:1 I am Start 
+VM545:3 I am End  undefined
+undefined
+VM545:6 I will Call after 5 sec 
+console.log("I am Start ");
+var promise = work();
+promise.then(data=>console.log('Data is ',data)).catch(err=>console.log('Error is ',err));
+console.log("I am End ",promise); // Pending
+function work(){
+var pr = new Promise((resolve, reject)=>{
+// Async Code
+setTimeout(()=>{
+console.log("I will Call after 5 sec ");
+resolve(1000);
+}, 5000);
+})
+return pr;
+}
+VM853:1 I am Start 
+VM853:4 I am End  Promise {<pending>}
+undefined
+VM853:9 I will Call after 5 sec 
+VM853:3 Data is  1000
+function cube(num){
+var promise= new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        if(num>10){
+            reject("Number is Greater than 10 ");
+}
+        resolve(num**3);
+});
+});
+return promise;
+}
+undefined
+var p = Promise.all(cube(5), cube(2), cube(3));
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+VM1472:2 TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+    at Function.all (<anonymous>)
+    at <anonymous>:1:17
+Promise {<fulfilled>: undefined}
+ Promise.all(cube(5), cube(2), cube(3)).then(data=>console.log(data)).catch(err=>console.log(err));
+VM1486:1 TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+    at Function.all (<anonymous>)
+    at <anonymous>:1:10
+Promise {<fulfilled>: undefined}
+var p = Promise.all([cube(5), cube(2), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1536:2 (3) [125, 8, 27]
+function cube(num){
+var promise= new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        if(num>10){
+            reject("Number is Greater than 10 ");
+}
+        resolve(num**3);
+},5000);
+});
+return promise;
+}
+undefined
+var p = Promise.all([cube(5), cube(2), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1570:2 (3) [125, 8, 27]
+var p = Promise.all([cube(5), cube(12), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1576:2 Number is Greater than 10 
+var p = Promise.allSettled([cube(5), cube(12), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1603:2 (3) [{…}, {…}, {…}]0: {status: "fulfilled", value: 125}1: {status: "rejected", reason: "Number is Greater than 10 "}2: {status: "fulfilled", value: 27}length: 3__proto__: Array(0)
+var p = Promise.race([cube(5), cube(12), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1616:2 125
+var p = Promise.race([cube(5), cube(2), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1625:2 125
+var p = Promise.any([cube(5), cube(2), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1636:2 125
+var p = Promise.any([cube(5), cube(12), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1646:2 125
+var p = Promise.any([cube(15), cube(12), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1659:2 27
+var p = Promise.race([cube(15), cube(12), cube(3)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1670:2 Number is Greater than 10 
+var p = Promise.any([cube(15), cube(12), cube(30)]);
+p.then(data=>console.log(data)).catch(err=>console.log(err));
+Promise {<pending>}
+VM1677:2 AggregateError: All promises were rejected
