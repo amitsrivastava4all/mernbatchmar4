@@ -1,0 +1,413 @@
+Last login: Sun Aug  1 13:59:03 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+(base) Amits-MacBook-Pro:~ amit$ mongo
+MongoDB shell version v4.0.9
+connecting to: mongodb://127.0.0.1:27017/?gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("6202ffeb-665a-4333-bfd7-fa9c7c7e4ab8") }
+MongoDB server version: 4.0.9
+Server has startup warnings: 
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] 
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] 
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server. 
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP 
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2021-08-01T14:00:48.051+0530 I CONTROL  [initandlisten] 
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+> show dbs;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use mydb;
+switched to db mydb
+> db;
+mydb
+> typeof mydb;
+undefined
+> typeof db;
+object
+> db.createCollection('emps');
+{ "ok" : 1 }
+> show collections;
+emps
+> db.emps.insert({id:1001, name:'Ram', salary:9999});
+WriteResult({ "nInserted" : 1 })
+> db.emps.find();
+{ "_id" : ObjectId("61065c53ab59603d1a03e8f0"), "id" : 1001, "name" : "Ram", "salary" : 9999 }
+> db.dropDataBase();
+2021-08-01T14:06:47.457+0530 E QUERY    [js] TypeError: db.dropDataBase is not a function :
+@(shell):1:1
+> db;
+mydb
+> db.dropDatabase();
+{ "dropped" : "mydb", "ok" : 1 }
+> show dbs;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use empdb;
+switched to db empdb
+> db.createCollection("emps");
+{ "ok" : 1 }
+> db.emps.drop();
+true
+> show collections;
+> db.createCollection("emps");
+{ "ok" : 1 }
+> show collections;
+emps
+> db.emps.insert({name:'Ram', salary:9999});
+WriteResult({ "nInserted" : 1 })
+> db.emps.insert([{name:'Shyam',salary:8888, bonus:888, dept:'IT'}]);
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 1,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.emps.insert([{name:'Sohan',salary:8888, bonus:888, dept:'IT'},{name:'Anil',salary:7777}]);
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 2,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.emps.find();
+{ "_id" : ObjectId("61065de3ab59603d1a03e8f1"), "name" : "Ram", "salary" : 9999 }
+{ "_id" : ObjectId("61065e00ab59603d1a03e8f2"), "name" : "Shyam", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f3"), "name" : "Sohan", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f4"), "name" : "Anil", "salary" : 7777 }
+> db.emps.find().pretty();
+{
+	"_id" : ObjectId("61065de3ab59603d1a03e8f1"),
+	"name" : "Ram",
+	"salary" : 9999
+}
+{
+	"_id" : ObjectId("61065e00ab59603d1a03e8f2"),
+	"name" : "Shyam",
+	"salary" : 8888,
+	"bonus" : 888,
+	"dept" : "IT"
+}
+{
+	"_id" : ObjectId("61065e21ab59603d1a03e8f3"),
+	"name" : "Sohan",
+	"salary" : 8888,
+	"bonus" : 888,
+	"dept" : "IT"
+}
+{
+	"_id" : ObjectId("61065e21ab59603d1a03e8f4"),
+	"name" : "Anil",
+	"salary" : 7777
+}
+> db.emps.insertOne({name:'Sunil', salary:88888});
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("61065e56ab59603d1a03e8f5")
+}
+> db.emps.find().pretty();
+{
+	"_id" : ObjectId("61065de3ab59603d1a03e8f1"),
+	"name" : "Ram",
+	"salary" : 9999
+}
+{
+	"_id" : ObjectId("61065e00ab59603d1a03e8f2"),
+	"name" : "Shyam",
+	"salary" : 8888,
+	"bonus" : 888,
+	"dept" : "IT"
+}
+{
+	"_id" : ObjectId("61065e21ab59603d1a03e8f3"),
+	"name" : "Sohan",
+	"salary" : 8888,
+	"bonus" : 888,
+	"dept" : "IT"
+}
+{
+	"_id" : ObjectId("61065e21ab59603d1a03e8f4"),
+	"name" : "Anil",
+	"salary" : 7777
+}
+{
+	"_id" : ObjectId("61065e56ab59603d1a03e8f5"),
+	"name" : "Sunil",
+	"salary" : 88888
+}
+> db.emps.findOne({name:'Ram'});
+{
+	"_id" : ObjectId("61065de3ab59603d1a03e8f1"),
+	"name" : "Ram",
+	"salary" : 9999
+}
+> db.emps.count();
+5
+> var cursor = db.emps.find();
+> cursor;
+{ "_id" : ObjectId("61065de3ab59603d1a03e8f1"), "name" : "Ram", "salary" : 9999 }
+{ "_id" : ObjectId("61065e00ab59603d1a03e8f2"), "name" : "Shyam", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f3"), "name" : "Sohan", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f4"), "name" : "Anil", "salary" : 7777 }
+{ "_id" : ObjectId("61065e56ab59603d1a03e8f5"), "name" : "Sunil", "salary" : 88888 }
+> cursor;
+> var cursor = db.emps.find();
+> var arr = cursor.toArray();
+> cursor;
+> arr;
+[
+	{
+		"_id" : ObjectId("61065de3ab59603d1a03e8f1"),
+		"name" : "Ram",
+		"salary" : 9999
+	},
+	{
+		"_id" : ObjectId("61065e00ab59603d1a03e8f2"),
+		"name" : "Shyam",
+		"salary" : 8888,
+		"bonus" : 888,
+		"dept" : "IT"
+	},
+	{
+		"_id" : ObjectId("61065e21ab59603d1a03e8f3"),
+		"name" : "Sohan",
+		"salary" : 8888,
+		"bonus" : 888,
+		"dept" : "IT"
+	},
+	{
+		"_id" : ObjectId("61065e21ab59603d1a03e8f4"),
+		"name" : "Anil",
+		"salary" : 7777
+	},
+	{
+		"_id" : ObjectId("61065e56ab59603d1a03e8f5"),
+		"name" : "Sunil",
+		"salary" : 88888
+	}
+]
+> arr;
+[
+	{
+		"_id" : ObjectId("61065de3ab59603d1a03e8f1"),
+		"name" : "Ram",
+		"salary" : 9999
+	},
+	{
+		"_id" : ObjectId("61065e00ab59603d1a03e8f2"),
+		"name" : "Shyam",
+		"salary" : 8888,
+		"bonus" : 888,
+		"dept" : "IT"
+	},
+	{
+		"_id" : ObjectId("61065e21ab59603d1a03e8f3"),
+		"name" : "Sohan",
+		"salary" : 8888,
+		"bonus" : 888,
+		"dept" : "IT"
+	},
+	{
+		"_id" : ObjectId("61065e21ab59603d1a03e8f4"),
+		"name" : "Anil",
+		"salary" : 7777
+	},
+	{
+		"_id" : ObjectId("61065e56ab59603d1a03e8f5"),
+		"name" : "Sunil",
+		"salary" : 88888
+	}
+]
+> arr;
+[
+	{
+		"_id" : ObjectId("61065de3ab59603d1a03e8f1"),
+		"name" : "Ram",
+		"salary" : 9999
+	},
+	{
+		"_id" : ObjectId("61065e00ab59603d1a03e8f2"),
+		"name" : "Shyam",
+		"salary" : 8888,
+		"bonus" : 888,
+		"dept" : "IT"
+	},
+	{
+		"_id" : ObjectId("61065e21ab59603d1a03e8f3"),
+		"name" : "Sohan",
+		"salary" : 8888,
+		"bonus" : 888,
+		"dept" : "IT"
+	},
+	{
+		"_id" : ObjectId("61065e21ab59603d1a03e8f4"),
+		"name" : "Anil",
+		"salary" : 7777
+	},
+	{
+		"_id" : ObjectId("61065e56ab59603d1a03e8f5"),
+		"name" : "Sunil",
+		"salary" : 88888
+	}
+]
+> arr.forEach(e=>print(e));
+[object BSON]
+[object BSON]
+[object BSON]
+[object BSON]
+[object BSON]
+> arr.forEach(e=>print(e.name));
+Ram
+Shyam
+Sohan
+Anil
+Sunil
+> arr.forEach(e=>print(`Name is ${e.name}`));
+Name is Ram
+Name is Shyam
+Name is Sohan
+Name is Anil
+Name is Sunil
+> arr.forEach(e=>printjson(e));
+{
+	"_id" : ObjectId("61065de3ab59603d1a03e8f1"),
+	"name" : "Ram",
+	"salary" : 9999
+}
+{
+	"_id" : ObjectId("61065e00ab59603d1a03e8f2"),
+	"name" : "Shyam",
+	"salary" : 8888,
+	"bonus" : 888,
+	"dept" : "IT"
+}
+{
+	"_id" : ObjectId("61065e21ab59603d1a03e8f3"),
+	"name" : "Sohan",
+	"salary" : 8888,
+	"bonus" : 888,
+	"dept" : "IT"
+}
+{
+	"_id" : ObjectId("61065e21ab59603d1a03e8f4"),
+	"name" : "Anil",
+	"salary" : 7777
+}
+{
+	"_id" : ObjectId("61065e56ab59603d1a03e8f5"),
+	"name" : "Sunil",
+	"salary" : 88888
+}
+> db.emps.find({salary:{$gt:7777}});
+{ "_id" : ObjectId("61065de3ab59603d1a03e8f1"), "name" : "Ram", "salary" : 9999 }
+{ "_id" : ObjectId("61065e00ab59603d1a03e8f2"), "name" : "Shyam", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f3"), "name" : "Sohan", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e56ab59603d1a03e8f5"), "name" : "Sunil", "salary" : 88888 }
+> db.emps.find({salary:{$lt:7777}});
+> db.emps.find({salary:{$lte:7777}});
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f4"), "name" : "Anil", "salary" : 7777 }
+> db.emps.find({salary:{$ne:7777}});
+{ "_id" : ObjectId("61065de3ab59603d1a03e8f1"), "name" : "Ram", "salary" : 9999 }
+{ "_id" : ObjectId("61065e00ab59603d1a03e8f2"), "name" : "Shyam", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f3"), "name" : "Sohan", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e56ab59603d1a03e8f5"), "name" : "Sunil", "salary" : 88888 }
+> db.emps.find({salary:{$in:[7777,8888]}});
+{ "_id" : ObjectId("61065e00ab59603d1a03e8f2"), "name" : "Shyam", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f3"), "name" : "Sohan", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f4"), "name" : "Anil", "salary" : 7777 }
+> db.emps.find({salary:{$or:[{salary:8888,name:'Anil'}]}});
+Error: error: {
+	"ok" : 0,
+	"errmsg" : "unknown operator: $or",
+	"code" : 2,
+	"codeName" : "BadValue"
+}
+> db.emps.find({salary:{$or:[{salary:8888},{name:'Anil'}]}});
+Error: error: {
+	"ok" : 0,
+	"errmsg" : "unknown operator: $or",
+	"code" : 2,
+	"codeName" : "BadValue"
+}
+> db.emps.find({$or:[{salary:888},{name:'Anil'}]});
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f4"), "name" : "Anil", "salary" : 7777 }
+> db.emps.find({$or:[{salary:8888},{name:'Anil'}]});
+{ "_id" : ObjectId("61065e00ab59603d1a03e8f2"), "name" : "Shyam", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f3"), "name" : "Sohan", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f4"), "name" : "Anil", "salary" : 7777 }
+> db.emps.find({$and:[{salary:8888},{name:'Anil'}]});
+> db.emps.find({$and:[{salary:8888},{name:'Sohan'}]});
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f3"), "name" : "Sohan", "salary" : 8888, "bonus" : 888, "dept" : "IT" }
+> db.emps.insertOne({name:'Mike',salary:8888, address:{city:'Delhi'}});
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("61066042ab59603d1a03e8f6")
+}
+> db.emps.findOne({address.city:'Delhi'});
+2021-08-01T14:20:36.649+0530 E QUERY    [js] SyntaxError: missing : after property id @(shell):1:24
+> db.emps.findOne({'address.city':'Delhi'});
+{
+	"_id" : ObjectId("61066042ab59603d1a03e8f6"),
+	"name" : "Mike",
+	"salary" : 8888,
+	"address" : {
+		"city" : "Delhi"
+	}
+}
+> db.emps.findOne({'address.city':'Delhi'},{name:1});
+{ "_id" : ObjectId("61066042ab59603d1a03e8f6"), "name" : "Mike" }
+> db.emps.findOne({'address.city':'Delhi'},{name:1, _id:0});
+{ "name" : "Mike" }
+> db.emps.deleteOne({name:'Sunil'});
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.emps.updateOne({name:'Anil'},{$set:{salary:101010}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.emps.findOne({name:'Anil'});
+{
+	"_id" : ObjectId("61065e21ab59603d1a03e8f4"),
+	"name" : "Anil",
+	"salary" : 101010
+}
+> db.emps.updateMany($or:[{name:'Anil'},{name:'Mike'}],{$set:{salary:2222}});
+2021-08-01T14:26:32.178+0530 E QUERY    [js] SyntaxError: missing ) after argument list @(shell):1:22
+> db.emps.updateMany($or:[{name:'Anil'},{name:'Mike'}],{$set:{salary:2222});
+... ^C
+
+> db.emps.updateMany($or:[{name:'Anil'},{name:'Mike'}],{$set:{salary:2222}});
+2021-08-01T14:27:18.902+0530 E QUERY    [js] SyntaxError: missing ) after argument list @(shell):1:22
+> db.emps.updateMany({$or:[{name:'Anil'},{name:'Mike'}],{$set:{salary:2222}}});
+2021-08-01T14:27:52.316+0530 E QUERY    [js] SyntaxError: invalid property id @(shell):1:54
+> db.emps.updateMany({$or:[{name:'Anil'},{name:'Mike'}]},{$set:{salary:2222}});
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.emps.find({$or:[{name:'Anil'},{name:'Mike'}]});
+{ "_id" : ObjectId("61065e21ab59603d1a03e8f4"), "name" : "Anil", "salary" : 2222 }
+{ "_id" : ObjectId("61066042ab59603d1a03e8f6"), "name" : "Mike", "salary" : 2222, "address" : { "city" : "Delhi" } }
+> 
